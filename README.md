@@ -5,4 +5,4 @@ For my second project in the AMS Front-End Web Development Bootcamp through Open
 
 Link to website:
 
-Link to GitHub repo:
+Link to GitHub repo: https://github.com/Sergioamf02/P2_SergioMartinez/tree/main
