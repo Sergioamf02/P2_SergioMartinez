@@ -1,0 +1,214 @@
+// RESETS
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+// END RESETS
+
+// UNIVERSAL BEHAVHIOUR
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+}
+
+// END UNIVERSAL BEHAVIOUR
+
+// VARIABLES
+
+// Spacing variables
+
+$section-padding: 20px;
+
+// // Colour variables
+$primary-color: #9356DC;
+$secondary-color: #FF79DA;
+$location-bg-color: #ededed;
+$grey-bg-color: #f7f7f7;
+
+
+// // Text variables
+$font-headings: Shrikhand, sans-serif;
+
+// // Misc variables
+$hover-shadow-cards: 0px 5px 5px 0 #9c9c9cb3;
+
+// END VARIABLES
+
+
+
+// MIXINS
+
+  @mixin flex-justify-content-center {
+    display: flex;
+    justify-content: center;
+  }
+
+  @mixin flex-justify-content-align-items-center { /* Used */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+// END MIXINS
+
+// KEYFRAMES
+
+// Loading spinner
+
+@keyframes loading {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(3turn);
+  }
+}
+
+@keyframes loading-fade {
+  from {
+    opacity: 100%;
+    visibility: visible;
+  }
+  to {
+    opacity: 0%;
+    visibility: hidden;
+  }
+}
+
+
+
+// Page fade in
+@keyframes transitionin {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+    transform: rotateX(-10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateX(0);
+  }
+}
+
+// tick spin animation
+
+@keyframes spin {
+  0% { 
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+// END KEYFRAMES
+
+// CSS
+
+// COMPONENT
+.loader {
+  @include flex-justify-content-align-items-center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: $grey-bg-color;
+  z-index: 10;
+  animation: loading-fade 1s ease 2.5s forwards;
+  &::after {
+    content: "";
+    width: 75px;
+    height: 75px;
+    border: 15px solid lighten($color: $secondary-color, $amount: 5%);
+    border-top: 15px solid lighten($color: $primary-color, $amount: 5%);
+    border-radius: 50%;
+    animation: loading 2s ease-in-out infinite;
+  }
+}
+
+// END COMPONENTS
+
+.transition-container {
+  animation: transitionin 0.75s 2.5s;
+}
+
+header {
+  @include flex-justify-content-center;
+  padding: 20px 0px;
+  box-shadow: $hover-shadow-cards;
+  background-color: white;
+  position: sticky;
+  top: 0px;
+  z-index: 5;
+  .logo {
+    width: auto;
+    height: 34px;
+  }
+  .back-button {
+    font-size: 25px;
+    position: absolute;
+    align-self: center;
+    left: 20px;
+    background: none;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+.location {
+  @include flex-justify-content-center;
+  background-color: $location-bg-color;
+  padding: $section-padding;
+  text-align: center;
+  i {
+    align-self: center;
+  }
+}
+
+
+// Footer
+
+footer {
+  padding: $section-padding;
+  background-color: #353535;
+  color: white;
+  h3 {
+    font-family: $font-headings;
+    margin-bottom: 10px;
+  }
+  li {
+    list-style: none;
+    padding: 5px 0px;
+  }
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+// MEDIA QUERIES
+
+// TABLET
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+ 
+ 
+}
+
+// DESKTOP
+
+@media screen and (min-width: 992px) {
+ 
+}
+  // END CSS
